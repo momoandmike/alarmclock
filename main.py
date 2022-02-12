@@ -1,19 +1,28 @@
 import pygame.mixer
 import schedule
 import time
+import os
+import random
+import sys
 
 
 # アラーム処理
 def Alarm():
     print("時間です")
-    Sound()
-    exit()  # これがないと無限ループになるので注意
+    # Sound()
+    exit()
 
+
+folder = r"C:\Users\momoa\PycharmProjects\day8\alarnclock\alarm"  # 音楽ファイルが格納されたフォルダを指定
+alarmList = os.listdir(folder)
+random.shuffle(alarmList)
 
 # 音再生処理
-def Sound():
-    pygame.mixer.init()  # 初期化
-    pygame.mixer.music.load("C:\Alarm\sato_rika.mp3")  # 読み込み
+# def Sound():
+pygame.mixer.init()
+
+for alarm in alarmList:
+    pygame.mixer.music.load("alarm\\" + alarm)  # 読み込み
     pygame.mixer.music.play(-1)  # ループ再生（引数を1にすると1回のみ再生）
     input()
     pygame.mixer.music.stop()  # 終了

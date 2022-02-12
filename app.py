@@ -1,5 +1,6 @@
 import requests as requests
 from flask import Flask, render_template, request
+
 app = Flask(__name__)
 
 
@@ -8,6 +9,12 @@ app = Flask(__name__)
 def set():
     # if requests.method == "GET":
     return render_template("index.html")
+
+
+@app.route("/receive_get")
+def receive_get():
+    t = request.args["time"]
+    return t + 'にアラームをセットしました。'
 
     # if requests.method == "POST":
     # content = "アラームをセットしました。"

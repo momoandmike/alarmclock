@@ -1,5 +1,6 @@
-import requests as requests
 from flask import Flask, render_template, request
+
+from main2 import sound, set_alarm
 
 app = Flask(__name__)
 
@@ -11,9 +12,16 @@ def set():
     return render_template("index.html")
 
 
-@app.route("/receive_get")
-def receive_get():
-    t = request.args["time"]
+@app.route("/alarm", methods=["GET"])
+def alarm():
+    # if requests.method == "GET":
+    return render_template("alarm.html")
+
+
+@app.route("/receive_post", methods=["post"])
+def receive_post():
+    t = request.form["time"]
+    set_alarm(t)
     return t + 'にアラームをセットしました。'
 
     # if requests.method == "POST":

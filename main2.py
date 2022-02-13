@@ -20,7 +20,7 @@ def sound():
     random.shuffle(alarmList)
     for alarm in alarmList:
         pygame.mixer.music.load("alarm\\" + alarm)
-    [{ "alarm": "asadayo_01.wav", "image": "***.jpg"}]
+    # [{ "alarm": "asadayo_01.wav", "image": "***.jpg"}]
     # pygame.mixer.music.load("C:/Users/momoa/PycharmProjects/day8/alarnclock/alarm/asadayo_01.wav")
     # pygame.mixer.music.load("C:/Users/momoa/PycharmProjects/day8/alarnclock/alarm/hayakuokite_01.wav")
     # pygame.mixer.music.load("C:/Users/momoa/PycharmProjects/day8/alarnclock/alarm/chikokushichauyo_01.wav")  # 読み込み
